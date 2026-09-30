@@ -1,69 +1,826 @@
-<!DOCTYPE html><html class="dark" lang="en"><head><meta charset="utf-8"><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" name="viewport"><meta content="mobile_blank" name="shell-type"><link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&amp;display=swap" rel="stylesheet"><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet">
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config = { darkMode: "class", theme: { extend: { colors: { "on-surface": "#dae3ee", "tertiary-container": "#d19821", "secondary": "#a2c9ff", "on-primary-fixed-variant": "#005317", "error": "#ffb4ab", "tertiary-fixed-dim": "#fabc45", "surface-container": "#182028", "surface-container-low": "#141c24", "on-secondary": "#00315c", "on-secondary-container": "#f0f4ff", "tertiary": "#fabc45", "on-tertiary-container": "#4c3400", "on-primary-fixed": "#002105", "on-tertiary-fixed": "#271900", "surface-dim": "#0b141c", "tertiary-fixed": "#ffdeaa", "primary-fixed": "#83fc89", "primary": "#67df70", "surface-bright": "#313a43", "on-error": "#690005", "surface-tint": "#67df70", "surface": "#0b141c", "on-tertiary-fixed-variant": "#5f4100", "inverse-primary": "#006e21", "surface-container-lowest": "#060f16", "inverse-on-surface": "#29313a", "on-primary-container": "#004311", "outline": "#879484", "surface-container-high": "#222b33", "on-secondary-fixed": "#001c38", "outline-variant": "#3e4a3c", "on-surface-variant": "#bdcab8", "background": "#0b141c", "secondary-fixed": "#d3e4ff", "primary-fixed-dim": "#67df70", "on-secondary-fixed-variant": "#004882", "on-primary": "#00390d", "error-container": "#93000a", "surface-container-highest": "#2d363e", "on-background": "#dae3ee", "primary-container": "#3fb950", "on-error-container": "#ffdad6", "surface-variant": "#2d363e", "secondary-fixed-dim": "#a2c9ff", "inverse-surface": "#dae3ee", "on-tertiary": "#422c00", "secondary-container": "#0071c7" }, borderRadius: { "DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem" }, spacing: { "margin-mobile": "0.75rem", "space-sm": "0.5rem", "space-xl": "1.5rem", "space-lg": "1rem", "space-xs": "0.25rem", "gutter": "1rem", "gutter-mobile": "0.5rem", "margin": "2rem", "space-md": "0.75rem" }, fontFamily: { "headline-md": ["JetBrains Mono"], "headline-xl": ["JetBrains Mono"], "body-lg": ["JetBrains Mono"], "body-sm": ["JetBrains Mono"], "body-md": ["JetBrains Mono"], "label-sm": ["JetBrains Mono"], "label-md": ["JetBrains Mono"], "headline-lg": ["JetBrains Mono"] }, fontSize: { "headline-md": ["15px", { "lineHeight": "22px", "fontWeight": "600" }], "headline-xl": ["24px", { "lineHeight": "32px", "letterSpacing": "-0.02em", "fontWeight": "700" }], "body-lg": ["14px", { "lineHeight": "22px", "fontWeight": "400" }], "body-sm": ["12px", { "lineHeight": "18px", "fontWeight": "400" }], "body-md": ["13px", { "lineHeight": "20px", "fontWeight": "400" }], "label-sm": ["11px", { "lineHeight": "14px", "letterSpacing": "0.04em", "fontWeight": "500" }], "label-md": ["12px", { "lineHeight": "16px", "letterSpacing": "0.02em", "fontWeight": "600" }], "headline-lg": ["18px", { "lineHeight": "26px", "letterSpacing": "-0.01em", "fontWeight": "600" }] } } } };</script><style>@layer base{html,body{width:100%;margin:0;padding:0;background-color:#0b141c;}body{overscroll-behavior-y:none;}.pb-safe{padding-bottom:env(safe-area-inset-bottom,0px);}.pt-safe{padding-top:env(safe-area-inset-top,0px);}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style></head><body class="bg-surface text-on-surface font-body-md text-body-md min-h-screen flex flex-col antialiased selection:bg-primary-container selection:text-surface-container-lowest"><main class="flex-1 w-full bg-surface pt-safe pb-safe px-space-md flex flex-col"><div class="flex flex-col w-full pb-space-xl">
-<!-- Interactive Terminal Window Container -->
-<div class="w-full max-w-4xl mx-auto rounded-xl shadow-xl overflow-hidden bg-surface-container-lowest">
-<!-- Top Terminal Chrome Window Header -->
-<div class="h-10 bg-surface-container-high px-space-md flex items-center justify-between select-none">
-<div class="flex items-center space-x-2">
-<span class="w-3 h-3 rounded-full bg-[#ff5f56] inline-block opacity-90"></span>
-<span class="w-3 h-3 rounded-full bg-[#ffbd2e] inline-block opacity-90"></span>
-<span class="w-3 h-3 rounded-full bg-[#27c93f] inline-block opacity-90"></span>
-</div>
-<div class="flex items-center space-x-1.5 text-on-surface-variant font-label-sm text-label-sm">
-<span class="material-symbols-outlined text-[14px]">terminal</span>
-<span class="">rouwel@portfolio: ~</span>
-</div>
-<div class="w-12 text-right">
-<span class="text-primary font-label-sm text-label-sm px-1.5 py-0.5 rounded bg-surface-container-highest">zsh</span>
-</div>
-</div>
-<!-- Quick Navigation Pill / Command Strip -->
-<div class="bg-surface-container-low px-space-md py-space-xs overflow-x-auto scrollbar-none flex items-center space-x-2"><span class="text-outline font-label-sm text-label-sm flex items-center pr-1 shrink-0"><span class="material-symbols-outlined text-[13px] mr-1">terminal</span>tab:</span><button class="px-space-sm py-1 rounded bg-primary-container text-surface-container-lowest font-semibold font-label-sm text-label-sm shrink-0 transition-colors" onclick="scrollToSection('sec-whoami')">about</button><button class="px-space-sm py-1 rounded bg-surface-container-high hover:bg-surface-container-highest text-on-surface font-label-sm text-label-sm active:bg-primary-container active:text-surface-container-lowest shrink-0 transition-colors" onclick="scrollToSection('sec-skills')">skills</button><button class="px-space-sm py-1 rounded bg-surface-container-high hover:bg-surface-container-highest text-on-surface font-label-sm text-label-sm active:bg-primary-container active:text-surface-container-lowest shrink-0 transition-colors" onclick="scrollToSection('sec-projects')">projects</button><button class="px-space-sm py-1 rounded bg-surface-container-high hover:bg-surface-container-highest text-on-surface font-label-sm text-label-sm active:bg-primary-container active:text-surface-container-lowest shrink-0 transition-colors" onclick="scrollToSection('sec-certs')">certs</button><button class="px-space-sm py-1 rounded bg-surface-container-high hover:bg-surface-container-highest text-on-surface font-label-sm text-label-sm active:bg-primary-container active:text-surface-container-lowest shrink-0 transition-colors" onclick="scrollToSection('sec-blog')">writing</button><button class="px-space-sm py-1 rounded bg-surface-container-high hover:bg-surface-container-highest text-on-surface font-label-sm text-label-sm active:bg-primary-container active:text-surface-container-lowest shrink-0 transition-colors" onclick="scrollToSection('sec-contact')">contact</button></div>
-<!-- Active Stream / stdout Buffer -->
-<div class="p-space-md flex flex-col space-y-space-lg text-on-surface font-body-sm text-body-sm">
-<!-- Session Init Banner -->
-<div class="text-outline text-label-sm font-label-sm flex items-center justify-between pb-space-xs">
-<span class="">Session initialized: tty2 (pty/2984)</span>
-<span class="flex items-center text-primary"><span class="w-1.5 h-1.5 rounded-full bg-primary inline-block mr-1.5"></span>LIVE</span>
-</div>
-<!-- SECTION 1: HERO & IDENTITY -->
-<section class="flex flex-col space-y-space-sm scroll-mt-6" id="sec-whoami"><div class="flex items-center space-x-2"><span class="text-primary font-headline-md text-headline-md font-bold">rouwel@zone01:~$</span><span class="text-on-surface font-headline-md text-headline-md">whoami</span></div><div class="bg-surface-container p-space-md rounded-lg flex flex-col space-y-space-sm border-none"><div class="flex items-center justify-between flex-wrap gap-2"><h1 class="text-primary-fixed font-headline-xl text-headline-xl tracking-tight font-bold">Rouwel Mwangu</h1><span class="px-2 py-0.5 rounded bg-surface-container-high text-secondary font-label-sm text-label-sm">Zone01 Fellow</span></div><p class="text-on-surface font-headline-md text-headline-md font-medium text-[16px]">Software Development &amp; DevSecOps Apprentice</p><div class="flex items-center space-x-2 text-outline text-body-md font-body-md text-[14px]"><span class="material-symbols-outlined text-[16px] text-tertiary">terminal</span><span class="">Building with Go, Python and Django. Based in Kenya.</span><span class="inline-block w-2 h-4 bg-primary animate-pulse align-middle"></span></div><div class="pt-1 flex items-center space-x-2"><span class="w-2 h-2 rounded-full bg-primary animate-pulse"></span><span class="text-primary font-label-md text-label-md">Available for collaborative projects &amp; open-source</span></div></div></section>
-<!-- SECTION 2: ABOUT ME -->
-<section class="flex flex-col space-y-space-sm scroll-mt-6" id="sec-about"><div class="flex items-center space-x-2"><span class="text-primary font-headline-md text-headline-md font-bold">rouwel@zone01:~$</span><span class="text-on-surface font-headline-md text-headline-md">cat about.txt</span></div><div class="bg-surface-container-low p-space-md rounded-lg text-on-surface-variant font-body-md text-body-md leading-relaxed space-y-space-xs text-[14px]"><p class="">Apprentice at <span class="text-secondary font-medium">Zone01 Kisumu</span> (Mar 2026 - present), building full-stack applications from design to deployment in a peer-to-peer curriculum. Contributes to open-source Python and Go projects, applies DevSecOps practices (Git workflows, system monitoring, Linux administration on Fedora), and delivers live products for real clients.</p><p class=""><span class="text-primary-fixed font-medium">ALX Africa graduate</span> in Cybersecurity and Back-End Web Development.</p><div class="pt-1 text-on-surface"><span class="text-outline">Interests:</span> <span class="text-secondary">open source</span>, <span class="text-secondary">technical writing</span>, <span class="text-secondary">football</span>, <span class="text-secondary">video games</span>.</div><div class="pt-2 flex flex-wrap gap-2 text-label-sm font-label-sm text-outline"><span class="px-2 py-0.5 bg-surface-container rounded">#Zone01</span><span class="px-2 py-0.5 bg-surface-container rounded">#DevSecOps</span><span class="px-2 py-0.5 bg-surface-container rounded">#OpenSource</span><span class="px-2 py-0.5 bg-surface-container rounded">#ALXAfrica</span></div></div></section>
-<!-- SECTION 3: SKILLS -->
-<section class="flex flex-col space-y-space-sm scroll-mt-6" id="sec-skills"><div class="flex items-center space-x-2"><span class="text-primary font-headline-md text-headline-md font-bold">rouwel@zone01:~$</span><span class="text-on-surface font-headline-md text-headline-md">ls skills/</span></div><div class="bg-surface-container-low p-space-md rounded-lg overflow-x-auto"><div class="text-outline font-label-sm text-label-sm mb-space-xs">total 7 categories (grouped directories)</div><div class="font-body-sm text-body-sm space-y-2 min-w-[280px]"><div class="flex flex-col sm:flex-row sm:items-start gap-1 sm:gap-2"><span class="text-primary font-medium w-28 shrink-0">languages/</span><span class="text-on-surface-variant leading-relaxed">C, TypeScript, Go, Python, SQL, HTML5, CSS3, JavaScript</span></div><div class="flex flex-col sm:flex-row sm:items-start gap-1 sm:gap-2"><span class="text-secondary font-medium w-28 shrink-0">backend/</span><span class="text-on-surface-variant leading-relaxed">Django, FastAPI, Go net/http, gorilla/mux, Fiber, REST APIs, JWT, gunicorn, web3</span></div><div class="flex flex-col sm:flex-row sm:items-start gap-1 sm:gap-2"><span class="text-tertiary font-medium w-28 shrink-0">ai/</span><span class="text-on-surface-variant leading-relaxed">RAG, LLM applications, LangChain, LlamaIndex, MCP, tool calling, FAISS, SentenceTransformers</span></div><div class="flex flex-col sm:flex-row sm:items-start gap-1 sm:gap-2"><span class="text-secondary font-medium w-28 shrink-0">frontend/</span><span class="text-on-surface-variant leading-relaxed">React.js, Tailwind CSS, Django Templates</span></div><div class="flex flex-col sm:flex-row sm:items-start gap-1 sm:gap-2"><span class="text-tertiary-fixed font-medium w-28 shrink-0">databases/</span><span class="text-on-surface-variant leading-relaxed">SQLite, PostgreSQL, MySQL</span></div><div class="flex flex-col sm:flex-row sm:items-start gap-1 sm:gap-2"><span class="text-primary-fixed font-medium w-28 shrink-0">devops/</span><span class="text-on-surface-variant leading-relaxed">Docker, Git, Linux/Bash, Google Cloud, Render, GitHub, Postman</span></div><div class="flex flex-col sm:flex-row sm:items-start gap-1 sm:gap-2"><span class="text-secondary font-medium w-28 shrink-0">blockchain/</span><span class="text-on-surface-variant leading-relaxed">VeChain, Lightning Network (LNbits)</span></div></div></div></section>
-<!-- SECTION 4: PROJECTS -->
-<section class="flex flex-col space-y-space-sm scroll-mt-6" id="sec-projects"><div class="flex items-center space-x-2"><span class="text-primary font-headline-md text-headline-md font-bold">rouwel@zone01:~$</span><span class="text-on-surface font-headline-md text-headline-md">ls projects/</span></div><div class="flex flex-col space-y-space-md"><!-- Project 1: guidely --><div class="bg-surface-container p-space-md rounded-lg flex flex-col space-y-space-sm"><div class="flex items-start justify-between"><div class="flex items-center space-x-2"><span class="material-symbols-outlined text-primary text-[18px]">folder</span><span class="text-secondary font-headline-md text-headline-md font-semibold">guidely/</span></div><span class="px-2 py-0.5 rounded bg-surface-container-highest text-tertiary font-label-sm text-label-sm">RAG Engine</span></div><p class="text-on-surface font-body-md text-body-md leading-relaxed">A Retrieval-Augmented Generation (RAG) system built from scratch in Python for semantic search over large text corpora. Full pipeline of ingestion, chunking, embeddings and retrieval, exposed as a REST API with source traceability.</p><div class="flex flex-wrap gap-1.5 py-0.5"><span class="px-2 py-0.5 rounded bg-surface-container-high text-primary font-label-sm text-label-sm">Python</span><span class="px-2 py-0.5 rounded bg-surface-container-high text-secondary font-label-sm text-label-sm">FastAPI</span><span class="px-2 py-0.5 rounded bg-surface-container-high text-tertiary font-label-sm text-label-sm">FAISS</span><span class="px-2 py-0.5 rounded bg-surface-container-high text-on-surface-variant font-label-sm text-label-sm">SentenceTransformers</span></div><div class="flex items-center space-x-3 pt-1"><a class="inline-flex items-center space-x-1 text-primary hover:text-primary-fixed font-label-md text-label-md py-1 px-2.5 rounded bg-surface-container-high hover:bg-surface-container-highest transition-colors" href="#"><span class="">[ live ↗ ]</span></a><a class="inline-flex items-center space-x-1 text-secondary hover:text-secondary-fixed font-label-md text-label-md py-1 px-2.5 rounded bg-surface-container-high hover:bg-surface-container-highest transition-colors" href="#"><span class="">[ source ↗ ]</span></a></div></div><!-- Project 2: chichwa.ke --><div class="bg-surface-container p-space-md rounded-lg flex flex-col space-y-space-sm"><div class="flex items-start justify-between"><div class="flex items-center space-x-2"><span class="material-symbols-outlined text-primary text-[18px]">folder</span><span class="text-secondary font-headline-md text-headline-md font-semibold">chichwa.ke/</span></div><span class="px-2 py-0.5 rounded bg-surface-container-highest text-outline font-label-sm text-label-sm">Agri-Platform</span></div><p class="text-on-surface font-body-md text-body-md leading-relaxed">A multi-role digital agricultural platform and marketplace built in partnership with UNDP and Kenyan county governments, connecting farmers, cooperatives, buyers and government officials. Role-based dashboards, produce marketplace, government-backed verification, sales analytics.</p><div class="flex flex-wrap gap-1.5 py-0.5"><span class="px-2 py-0.5 rounded bg-surface-container-high text-primary font-label-sm text-label-sm">Django</span><span class="px-2 py-0.5 rounded bg-surface-container-high text-secondary font-label-sm text-label-sm">Tailwind CSS</span></div><div class="flex items-center space-x-3 pt-1"><a class="inline-flex items-center space-x-1 text-primary hover:text-primary-fixed font-label-md text-label-md py-1 px-2.5 rounded bg-surface-container-high hover:bg-surface-container-highest transition-colors" href="#"><span class="">[ live ↗ ]</span></a><a class="inline-flex items-center space-x-1 text-secondary hover:text-secondary-fixed font-label-md text-label-md py-1 px-2.5 rounded bg-surface-container-high hover:bg-surface-container-highest transition-colors" href="#"><span class="">[ source ↗ ]</span></a></div></div><!-- Project 3: trace-blocks --><div class="bg-surface-container p-space-md rounded-lg flex flex-col space-y-space-sm"><div class="flex items-start justify-between"><div class="flex items-center space-x-2"><span class="material-symbols-outlined text-primary text-[18px]">folder</span><span class="text-secondary font-headline-md text-headline-md font-semibold">trace-blocks/</span></div><span class="px-2 py-0.5 rounded bg-surface-container-highest text-outline font-label-sm text-label-sm">Hackathon Jun 2026</span></div><p class="text-on-surface font-body-md text-body-md leading-relaxed">A blockchain supply chain tracker built at a hackathon (Jun 2026), recording tamper-proof records of goods in transit on the VeChain blockchain.</p><div class="flex flex-wrap gap-1.5 py-0.5"><span class="px-2 py-0.5 rounded bg-surface-container-high text-primary font-label-sm text-label-sm">Django</span><span class="px-2 py-0.5 rounded bg-surface-container-high text-secondary font-label-sm text-label-sm">VeChain</span><span class="px-2 py-0.5 rounded bg-surface-container-high text-on-surface-variant font-label-sm text-label-sm">smart contracts</span></div><div class="flex items-center space-x-3 pt-1"><a class="inline-flex items-center space-x-1 text-primary hover:text-primary-fixed font-label-md text-label-md py-1 px-2.5 rounded bg-surface-container-high hover:bg-surface-container-highest transition-colors" href="#"><span class="">[ live ↗ ]</span></a><a class="inline-flex items-center space-x-1 text-secondary hover:text-secondary-fixed font-label-md text-label-md py-1 px-2.5 rounded bg-surface-container-high hover:bg-surface-container-highest transition-colors" href="#"><span class="">[ source ↗ ]</span></a></div></div><!-- Project 4: gogolas-granola --><div class="bg-surface-container p-space-md rounded-lg flex flex-col space-y-space-sm"><div class="flex items-start justify-between"><div class="flex items-center space-x-2"><span class="material-symbols-outlined text-primary text-[18px]">folder</span><span class="text-secondary font-headline-md text-headline-md font-semibold">gogolas-granola/</span></div><span class="px-2 py-0.5 rounded bg-surface-container-highest text-outline font-label-sm text-label-sm">E-Commerce</span></div><p class="text-on-surface font-body-md text-body-md leading-relaxed">A complete e-commerce site for a real food business, with product catalogue, order flow, and an admin panel so the client manages inventory independently. Deployed live on Render.</p><div class="flex flex-wrap gap-1.5 py-0.5"><span class="px-2 py-0.5 rounded bg-surface-container-high text-primary font-label-sm text-label-sm">Django</span><span class="px-2 py-0.5 rounded bg-surface-container-high text-secondary font-label-sm text-label-sm">Render</span></div><div class="flex items-center space-x-3 pt-1"><a class="inline-flex items-center space-x-1 text-primary hover:text-primary-fixed font-label-md text-label-md py-1 px-2.5 rounded bg-surface-container-high hover:bg-surface-container-highest transition-colors" href="#"><span class="">[ live ↗ ]</span></a><a class="inline-flex items-center space-x-1 text-secondary hover:text-secondary-fixed font-label-md text-label-md py-1 px-2.5 rounded bg-surface-container-high hover:bg-surface-container-highest transition-colors" href="#"><span class="">[ source ↗ ]</span></a></div></div><!-- Project 5: grouper --><div class="bg-surface-container p-space-md rounded-lg flex flex-col space-y-space-sm"><div class="flex items-start justify-between"><div class="flex items-center space-x-2"><span class="material-symbols-outlined text-primary text-[18px]">folder</span><span class="text-secondary font-headline-md text-headline-md font-semibold">grouper/</span></div><span class="px-2 py-0.5 rounded bg-surface-container-highest text-outline font-label-sm text-label-sm">Team Generator</span></div><p class="text-on-surface font-body-md text-body-md leading-relaxed">A skill-balanced team generator using a snake-draft algorithm, with Lightning Network payment gating via LNbits. Deployed live on Render.</p><div class="flex flex-wrap gap-1.5 py-0.5"><span class="px-2 py-0.5 rounded bg-surface-container-high text-primary font-label-sm text-label-sm">Django</span><span class="px-2 py-0.5 rounded bg-surface-container-high text-secondary font-label-sm text-label-sm">LNbits</span><span class="px-2 py-0.5 rounded bg-surface-container-high text-on-surface-variant font-label-sm text-label-sm">REST</span></div><div class="flex items-center space-x-3 pt-1"><a class="inline-flex items-center space-x-1 text-primary hover:text-primary-fixed font-label-md text-label-md py-1 px-2.5 rounded bg-surface-container-high hover:bg-surface-container-highest transition-colors" href="#"><span class="">[ live ↗ ]</span></a><a class="inline-flex items-center space-x-1 text-secondary hover:text-secondary-fixed font-label-md text-label-md py-1 px-2.5 rounded bg-surface-container-high hover:bg-surface-container-highest transition-colors" href="#"><span class="">[ source ↗ ]</span></a></div></div></div></section>
-<!-- SECTION 5: TECHNICAL WRITING -->
-<!-- SECTION: CERTIFICATIONS --><section class="flex flex-col space-y-space-sm scroll-mt-6" id="sec-certs"><div class="flex items-center space-x-2"><span class="text-primary font-headline-md text-headline-md font-bold">rouwel@zone01:~$</span><span class="text-on-surface font-headline-md text-headline-md">ls certifications/</span></div><div class="bg-surface-container-low p-space-md rounded-lg"><div class="font-body-md text-body-md space-y-2.5"><div class="flex items-start justify-between flex-wrap gap-1"><div class="flex items-center space-x-2"><span class="material-symbols-outlined text-primary text-[16px]">verified</span><span class="text-on-surface font-medium">ALX Africa - Cybersecurity Programme</span></div><span class="text-outline font-label-sm text-label-sm font-mono">(Oct 2025 - Jan 2026)</span></div><div class="flex items-start justify-between flex-wrap gap-1"><div class="flex items-center space-x-2"><span class="material-symbols-outlined text-primary text-[16px]">verified</span><span class="text-on-surface font-medium">ALX Africa - Back-End Web Development</span></div><span class="text-outline font-label-sm text-label-sm font-mono">(Aug 2025 - Jan 2026)</span></div><div class="flex items-start justify-between flex-wrap gap-1"><div class="flex items-center space-x-2"><span class="material-symbols-outlined text-primary text-[16px]">verified</span><span class="text-on-surface font-medium">ALX Africa - Professional Foundations</span></div><span class="text-outline font-label-sm text-label-sm font-mono">(May 2025 - Jul 2025)</span></div></div></div></section><section class="flex flex-col space-y-space-sm scroll-mt-6" id="sec-blog"><div class="flex items-center space-x-2"><span class="text-primary font-headline-md text-headline-md font-bold">rouwel@zone01:~$</span><span class="text-on-surface font-headline-md text-headline-md">cat blog.md</span></div><div class="bg-surface-container-low p-space-md rounded-lg flex flex-col space-y-space-md"><div class="flex items-center justify-between text-outline font-label-sm text-label-sm border-none"><span class="">## Recent Publications</span><span class="">dev.to/rrouwelng</span></div><div class="space-y-space-sm"><a class="block p-space-sm rounded bg-surface-container hover:bg-surface-container-high transition-colors" href="https://dev.to/rrouwelng" target="_blank"><div class="text-secondary font-headline-md text-headline-md mb-1 leading-snug">Building Resilient REST APIs with Go and Fiber: A Practical Guide</div><div class="flex items-center justify-between text-outline font-label-sm text-label-sm"><span class="">Published: Feb 2026</span><span class="text-primary font-medium">[read post ↗]</span></div></a><a class="block p-space-sm rounded bg-surface-container hover:bg-surface-container-high transition-colors" href="https://dev.to/rrouwelng" target="_blank"><div class="text-secondary font-headline-md text-headline-md mb-1 leading-snug">Understanding Linux File Permissions and Security on Fedora</div><div class="flex items-center justify-between text-outline font-label-sm text-label-sm"><span class="">Published: Jan 2026</span><span class="text-primary font-medium">[read post ↗]</span></div></a><a class="block p-space-sm rounded bg-surface-container hover:bg-surface-container-high transition-colors" href="https://dev.to/rrouwelng" target="_blank"><div class="text-secondary font-headline-md text-headline-md mb-1 leading-snug">Implementing RAG Architectures with Python and FAISS</div><div class="flex items-center justify-between text-outline font-label-sm text-label-sm"><span class="">Published: Dec 2025</span><span class="text-primary font-medium">[read post ↗]</span></div></a></div><div class="pt-1"><a class="w-full inline-flex items-center justify-center space-x-2 py-2 px-space-md rounded bg-surface-container-high hover:bg-surface-container-highest text-primary font-headline-md text-headline-md text-center transition-colors" href="https://dev.to/rrouwelng" target="_blank"><span class="">[ Read all articles on dev.to/rrouwelng ↗ ]</span></a></div></div></section>
-<!-- SECTION 6: CONTACT -->
-<section class="flex flex-col space-y-space-sm scroll-mt-6" id="sec-contact"><div class="flex items-center space-x-2"><span class="text-primary font-headline-md text-headline-md font-bold">rouwel@zone01:~$</span><span class="text-on-surface font-headline-md text-headline-md">./contact.sh</span></div><div class="bg-surface-container-low p-space-md rounded-lg overflow-x-auto"><div class="space-y-2 min-w-[260px] font-body-md text-body-md text-[14px]"><div class="flex items-center"><span class="w-24 text-outline font-mono text-label-md">email:</span><a class="text-primary hover:text-primary-fixed hover:underline flex items-center" href="mailto:rouwelngacha@gmail.com"><span class="">rouwelngacha@gmail.com</span><span class="material-symbols-outlined text-[14px] ml-1">mail</span></a></div><div class="flex items-center"><span class="w-24 text-outline font-mono text-label-md">github:</span><a class="text-secondary hover:text-secondary-fixed hover:underline flex items-center" href="https://github.com/rouwel" target="_blank"><span class="">github.com/rouwel</span><span class="material-symbols-outlined text-[14px] ml-1">north_east</span></a></div><div class="flex items-center"><span class="w-24 text-outline font-mono text-label-md">linkedin:</span><a class="text-secondary hover:text-secondary-fixed hover:underline flex items-center" href="https://linkedin.com/in/rouwel-mwangu" target="_blank"><span class="">linkedin.com/in/rouwel-mwangu</span><span class="material-symbols-outlined text-[14px] ml-1">north_east</span></a></div><div class="flex items-center"><span class="w-24 text-outline font-mono text-label-md">blog:</span><a class="text-secondary hover:text-secondary-fixed hover:underline flex items-center" href="https://dev.to/rrouwelng" target="_blank"><span class="">dev.to/rrouwelng</span><span class="material-symbols-outlined text-[14px] ml-1">north_east</span></a></div></div></div></section>
-<!-- ACTIVE CURSOR / LIVE CLI PROMPT LINE -->
-<div class="pt-space-xs flex items-center">
-<span class="text-primary font-headline-md text-headline-md font-bold">rouwel@zone01:~$</span>
-<span class="inline-block w-2.5 h-5 bg-primary align-middle animate-pulse ml-2"></span>
-</div>
-</div>
-<!-- Terminal Footer Status Bar -->
-<div class="h-8 bg-surface-container-high px-space-md flex items-center justify-between text-outline font-label-sm text-label-sm select-none">
-<div class="flex items-center space-x-3">
-<span class="flex items-center"><span class="material-symbols-outlined text-[13px] mr-1 text-primary">check_circle</span>NORMAL</span>
-<span class="hidden sm:inline">UTF-8</span>
-</div>
-<div class="flex items-center space-x-3">
-<span class="">Go • Python • DevSecOps</span>
-<span class="text-primary">Zone01 Kisumu</span>
-</div>
-</div>
-</div>
-</div>
-<script>
-  function scrollToSection(id) {
-    const el = document.getElementById(id);
-    if (el) {
-      el.scrollIntoView({ behavior: 'smooth', block: 'start' });
-    }
-  }
-</script></main>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>rouwel@portfolio: ~</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Crisp Google Fonts for High Readability Retro Terminals -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600;700&family=Press+Start+2P&family=Share+Tech+Mono&family=VT323&display=swap" rel="stylesheet">
 
-</body></html>
+    <style>
+        :root {
+            --bezel-bg: #1e222b;
+            --bezel-border: #11141a;
+            --term-bg: #090d12;
+            --term-screen: #0c1017;
+            --term-green: #3fb950;
+            --term-green-bright: #26ff63;
+            --term-green-glow: rgba(63, 185, 80, 0.25);
+            --term-green-dim: #133a1a;
+            --term-text: #f0f6fc;
+            --term-text-muted: #8b949e;
+            --term-amber: #f2c94c;
+            --term-cyan: #38bdf8;
+            --term-purple: #c084fc;
+            --term-border: #21262d;
+        }
+
+        body {
+            background-color: #05070a;
+            background-image: radial-gradient(#151922 1px, transparent 1px);
+            background-size: 16px 16px;
+            color: var(--term-text);
+            font-family: 'Fira Code', 'Share Tech Mono', monospace;
+            font-size: 16px;
+            letter-spacing: 0.2px;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .font-pixel-heading {
+            font-family: 'Press Start 2P', cursive;
+        }
+
+        .font-pixel-accent {
+            font-family: 'VT323', monospace;
+            font-size: 1.25rem;
+        }
+
+        .font-code {
+            font-family: 'Fira Code', monospace;
+        }
+
+        /* CRT Physical Bezel Monitor Frame */
+        .crt-monitor-bezel {
+            background: linear-gradient(145deg, #2a2e39 0%, #151820 100%);
+            border: 12px solid #101218;
+            border-radius: 24px;
+            box-shadow:
+                0 0 0 4px #232732,
+                0 20px 50px rgba(0, 0, 0, 0.8),
+                inset 0 2px 3px rgba(255, 255, 255, 0.1);
+            position: relative;
+        }
+
+        .crt-screen-inner {
+            background-color: var(--term-screen);
+            border: 4px solid #000000;
+            border-radius: 8px;
+            position: relative;
+            box-shadow: inset 0 0 15px rgba(0,0,0,0.9);
+            overflow: hidden;
+        }
+
+        /* Retro Buttons on Bezel */
+        .pixel-button {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            border: 1px solid var(--term-green);
+            background: rgba(63, 185, 80, 0.12);
+            color: var(--term-green-bright);
+            padding: 4px 12px;
+            font-family: 'Fira Code', monospace;
+            font-size: 13px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.15s ease;
+            text-decoration: none;
+            box-shadow: 2px 2px 0px var(--term-green-dim);
+        }
+
+        .pixel-button:hover, .pixel-button:focus {
+            background: var(--term-green);
+            color: #090d12;
+            box-shadow: 0px 0px 0px transparent;
+            transform: translate(2px, 2px);
+            outline: none;
+        }
+
+        /* CRT Screen Scanline Overlay */
+        .crt-scanlines {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(
+                rgba(18, 16, 16, 0) 50%,
+                rgba(0, 0, 0, 0.25) 50%
+            );
+            background-size: 100% 4px;
+            pointer-events: none;
+            z-index: 40;
+            opacity: 0.6;
+        }
+
+        /* Blinking Cursor */
+        .pixel-cursor {
+            display: inline-block;
+            width: 9px;
+            height: 18px;
+            background-color: var(--term-green-bright);
+            vertical-align: text-bottom;
+            margin-left: 2px;
+            animation: blink 0.9s steps(2, start) infinite;
+            box-shadow: 0 0 6px var(--term-green);
+        }
+
+        @keyframes blink {
+            to { visibility: hidden; }
+        }
+
+        /* High-Contrast Color Utilities */
+        .text-green-accent {
+            color: var(--term-green-bright);
+            text-shadow: 0 0 4px rgba(63, 185, 80, 0.4);
+        }
+        .text-amber {
+            color: var(--term-amber);
+        }
+        .text-cyan {
+            color: var(--term-cyan);
+        }
+        .text-purple {
+            color: var(--term-purple);
+        }
+        .text-muted {
+            color: var(--term-text-muted);
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+            height: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #090c10;
+            border-left: 1px solid var(--term-border);
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #21262d;
+            border-radius: 2px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--term-green);
+        }
+
+        #matrix-canvas {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 5;
+            display: none;
+            opacity: 0.2;
+            pointer-events: none;
+        }
+
+        .nav-tab {
+            font-family: 'Fira Code', monospace;
+            font-size: 13px;
+            font-weight: 500;
+            transition: all 0.15s ease;
+        }
+        .nav-tab.active {
+            color: var(--term-green-bright);
+            border-color: var(--term-green);
+            background-color: rgba(63, 185, 80, 0.1);
+        }
+    </style>
+</head>
+<body class="p-2 sm:p-4 md:p-8">
+
+    <!-- Physical Retro CRT Monitor Frame -->
+    <div class="crt-monitor-bezel w-full max-w-5xl my-auto p-3 sm:p-5">
+
+        <!-- CRT Screen Display -->
+        <div class="crt-screen-inner flex flex-col h-[85vh] max-h-[820px]">
+
+            <!-- Scanlines Layer -->
+            <div id="crt-scanlines" class="crt-scanlines"></div>
+            <canvas id="matrix-canvas"></canvas>
+
+            <!-- Terminal Top Window Header -->
+            <div class="bg-[#161b22] px-4 py-2.5 flex items-center justify-between border-b border-[#30363d] select-none z-10">
+                <!-- Retro Window Dots -->
+                <div class="flex items-center space-x-2">
+                    <span class="w-3 h-3 rounded-full bg-red-500/80 inline-block border border-red-700"></span>
+                    <span class="w-3 h-3 rounded-full bg-yellow-500/80 inline-block border border-yellow-700"></span>
+                    <span class="w-3 h-3 rounded-full bg-green-500/80 inline-block border border-green-700"></span>
+                    <span class="ml-2 font-code text-xs text-muted hidden sm:inline">bash - 80x24</span>
+                </div>
+
+                <!-- Terminal Screen Title -->
+                <div class="font-code text-xs sm:text-sm text-green-accent font-semibold truncate px-2">
+                    rouwel@portfolio: ~
+                </div>
+
+                <!-- CRT Control Options -->
+                <div class="flex items-center space-x-2">
+                    <button id="toggle-crt" class="font-code text-[11px] bg-[#21262d] hover:bg-[#30363d] border border-[#30363d] text-gray-300 hover:text-green-accent px-2 py-0.5 rounded">
+                        CRT: ON
+                    </button>
+                </div>
+            </div>
+
+            <!-- Navigation Bar -->
+            <nav class="bg-[#0d1117] border-b border-[#30363d] px-3 pt-2 flex overflow-x-auto space-x-2 scrollbar-none select-none z-10">
+                <button onclick="scrollToSection('hero')" class="nav-tab active border-b-2 border-green-500 text-green-accent px-3 py-1.5 focus:outline-none whitespace-nowrap">
+                    about
+                </button>
+                <button onclick="scrollToSection('skills')" class="nav-tab border-b-2 border-transparent text-muted hover:text-gray-200 px-3 py-1.5 focus:outline-none whitespace-nowrap">
+                    skills
+                </button>
+                <button onclick="scrollToSection('projects')" class="nav-tab border-b-2 border-transparent text-muted hover:text-gray-200 px-3 py-1.5 focus:outline-none whitespace-nowrap">
+                    projects
+                </button>
+                <button onclick="scrollToSection('certs')" class="nav-tab border-b-2 border-transparent text-muted hover:text-gray-200 px-3 py-1.5 focus:outline-none whitespace-nowrap">
+                    certs
+                </button>
+                <button onclick="scrollToSection('writing')" class="nav-tab border-b-2 border-transparent text-muted hover:text-gray-200 px-3 py-1.5 focus:outline-none whitespace-nowrap">
+                    writing
+                </button>
+                <button onclick="scrollToSection('contact')" class="nav-tab border-b-2 border-transparent text-muted hover:text-gray-200 px-3 py-1.5 focus:outline-none whitespace-nowrap">
+                    contact
+                </button>
+            </nav>
+
+            <!-- Main Terminal Body / Output Console -->
+            <div id="terminal-content" class="p-4 sm:p-6 space-y-10 overflow-y-auto flex-grow z-10 font-code text-sm sm:text-base">
+
+                <!-- HERO / ABOUT SECTION -->
+                <section id="hero" class="scroll-mt-6">
+                    <div class="flex items-center space-x-2 text-sm sm:text-base mb-4 border-b border-[#21262d] pb-2">
+                        <span class="text-green-accent font-bold">rouwel@zone01:~$</span>
+                        <span class="text-white font-semibold">whoami</span>
+                    </div>
+
+                    <div class="grid grid-cols-1 md:grid-cols-12 gap-6 items-start bg-[#161b22]/70 p-4 sm:p-5 border border-[#30363d] rounded">
+                        <!-- Rouwel's Portrait Photo inside CRT Monitor Layout -->
+                        <div class="md:col-span-4 flex flex-col items-center justify-center">
+                            <div class="relative p-1.5 bg-[#0d1117] border-2 border-green-500 rounded shadow-[0_0_15px_rgba(63,185,80,0.25)] w-full max-w-[210px] group">
+
+                                <!-- Container for Image display -->
+                                <div id="avatar-container" class="relative w-full h-52 bg-[#12161f] border border-[#21262d] rounded overflow-hidden flex items-center justify-center cursor-pointer" onclick="document.getElementById('photo-upload').click()">
+
+
+                                    <!-- Uploaded Custom Image Container -->
+                                    <img id="user-portrait-img" src="Rouwel MWangu.JPG" alt="Rouwel Mwangu" class="hidden w-full h-full object-cover object-top" />
+
+                                    <!-- Hover Overlay Prompt -->
+                                    <div class="absolute inset-0 bg-black/70 flex flex-col items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity text-center p-2">
+
+                                    </div>
+                                </div>
+
+                                <!-- Hidden File Input -->
+                                <!-- Label Below Image -->
+                                <div class="mt-2 flex items-center justify-between bg-green-500/10 border border-green-500/40 text-green-accent text-[11px] font-pixel-heading py-1 px-2">
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Hero Info Output -->
+                        <div class="md:col-span-8 space-y-3">
+                            <h1 class="text-xl sm:text-2xl font-bold text-green-accent">
+                                Rouwel Mwangu
+                            </h1>
+                            <p class="text-amber font-medium">
+                                Software Development &amp; DevSecOps Apprentice
+                            </p>
+                            <p class="text-gray-200 leading-relaxed text-sm sm:text-base">
+                                Building resilient full-stack platforms with <span class="text-cyan font-semibold">Go</span>, <span class="text-amber font-semibold">Python</span>, and <span class="text-green-accent font-semibold">Django</span>. Based in Kenya.
+                            </p>
+
+                            <div class="pt-3 border-t border-[#21262d] text-xs sm:text-sm text-gray-300 space-y-2">
+                                <div class="flex items-start space-x-2">
+                                    <span class="text-green-accent font-bold">&gt;</span>
+                                    <span><strong>Current:</strong> Apprentice at <span class="text-white font-semibold">Zone01 Kisumu</span> (Mar 2026 - present), building full-stack applications from design to deployment in a peer-to-peer curriculum.</span>
+                                </div>
+                                <div class="flex items-start space-x-2">
+                                    <span class="text-green-accent font-bold">&gt;</span>
+                                    <span><strong>Practices:</strong> Open-source Python &amp; Go contribution, DevSecOps (Git workflows, system monitoring, Linux administration on Fedora), live production deployments.</span>
+                                </div>
+                                <div class="flex items-start space-x-2">
+                                    <span class="text-green-accent font-bold">&gt;</span>
+                                    <span><strong>Education:</strong> ALX Africa graduate in Cybersecurity and Back-End Web Development.</span>
+                                </div>
+                                <div class="flex items-start space-x-2">
+                                    <span class="text-purple font-bold">&gt;</span>
+                                    <span><strong>Interests:</strong> Open source, technical writing, football, video games.</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- SKILLS SECTION -->
+                <section id="skills" class="scroll-mt-6">
+                    <div class="flex items-center space-x-2 text-sm sm:text-base mb-4 border-b border-[#21262d] pb-2">
+                        <span class="text-green-accent font-bold">rouwel@zone01:~$</span>
+                        <span class="text-white font-semibold">ls -la skills/</span>
+                    </div>
+
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <div class="p-3.5 border border-[#30363d] bg-[#161b22]/50 rounded">
+                            <div class="text-amber font-bold text-xs uppercase mb-1.5">languages/</div>
+                            <p class="text-gray-200 text-sm">C, TypeScript, Go, Python, SQL, HTML5, CSS3, JavaScript</p>
+                        </div>
+
+                        <div class="p-3.5 border border-[#30363d] bg-[#161b22]/50 rounded">
+                            <div class="text-green-accent font-bold text-xs uppercase mb-1.5">backend/</div>
+                            <p class="text-gray-200 text-sm">Django, FastAPI, Go net/http, gorilla/mux, Fiber, REST APIs, JWT, gunicorn, web3</p>
+                        </div>
+
+                        <div class="p-3.5 border border-[#30363d] bg-[#161b22]/50 rounded">
+                            <div class="text-cyan font-bold text-xs uppercase mb-1.5">ai_stack/</div>
+                            <p class="text-gray-200 text-sm">RAG, LLM applications, LangChain, LlamaIndex, MCP, tool calling, FAISS, SentenceTransformers</p>
+                        </div>
+
+                        <div class="p-3.5 border border-[#30363d] bg-[#161b22]/50 rounded">
+                            <div class="text-purple font-bold text-xs uppercase mb-1.5">frontend/</div>
+                            <p class="text-gray-200 text-sm">React.js, Tailwind CSS, Django Templates</p>
+                        </div>
+
+                        <div class="p-3.5 border border-[#30363d] bg-[#161b22]/50 rounded">
+                            <div class="text-amber font-bold text-xs uppercase mb-1.5">databases/</div>
+                            <p class="text-gray-200 text-sm">SQLite, PostgreSQL, MySQL</p>
+                        </div>
+
+                        <div class="p-3.5 border border-[#30363d] bg-[#161b22]/50 rounded">
+                            <div class="text-green-accent font-bold text-xs uppercase mb-1.5">devops/</div>
+                            <p class="text-gray-200 text-sm">Docker, Git, Linux/Bash, Google Cloud, Render, GitHub, Postman</p>
+                        </div>
+
+                        <div class="p-3.5 border border-[#30363d] bg-[#161b22]/50 rounded md:col-span-2">
+                            <div class="text-cyan font-bold text-xs uppercase mb-1.5">blockchain/</div>
+                            <p class="text-gray-200 text-sm">VeChain, Lightning Network (LNbits)</p>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- PROJECTS SECTION -->
+                <section id="projects" class="scroll-mt-6">
+                    <div class="flex items-center space-x-2 text-sm sm:text-base mb-4 border-b border-[#21262d] pb-2">
+                        <span class="text-green-accent font-bold">rouwel@zone01:~$</span>
+                        <span class="text-white font-semibold">cat projects/*.md</span>
+                    </div>
+
+                    <div class="space-y-4">
+                        <!-- Project 1 -->
+                        <div class="p-4 border border-[#30363d] bg-[#161b22]/60 rounded hover:border-green-500/60 transition-colors">
+                            <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-[#21262d] pb-2 mb-2">
+                                <span class="font-bold text-green-accent text-base sm:text-lg">&gt; guidely</span>
+                                <a href="https://github.com/rouwel" target="_blank" rel="noopener" class="pixel-button self-start sm:self-auto">[SOURCE]</a>
+                            </div>
+                            <p class="text-gray-200 text-sm mb-2.5">
+                                A Retrieval-Augmented Generation (RAG) system built from scratch in Python for semantic search over large text corpora. Full pipeline of ingestion, chunking, embeddings and retrieval, exposed as a REST API with source traceability.
+                            </p>
+                            <div class="text-xs text-cyan">
+                                <strong class="text-muted">Stack:</strong> Python, FastAPI, FAISS, SentenceTransformers
+                            </div>
+                        </div>
+
+                        <!-- Project 2 -->
+                        <div class="p-4 border border-[#30363d] bg-[#161b22]/60 rounded hover:border-amber/60 transition-colors">
+                            <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-[#21262d] pb-2 mb-2">
+                                <span class="font-bold text-amber text-base sm:text-lg">&gt; chichwa.ke</span>
+                                <a href="https://github.com/rouwel" target="_blank" rel="noopener" class="pixel-button self-start sm:self-auto">[SOURCE]</a>
+                            </div>
+                            <p class="text-gray-200 text-sm mb-2.5">
+                                A multi-role digital agricultural platform and marketplace built in partnership with UNDP and Kenyan county governments, connecting farmers, cooperatives, buyers and government officials. Role-based dashboards, produce marketplace, government-backed verification, sales analytics.
+                            </p>
+                            <div class="text-xs text-cyan">
+                                <strong class="text-muted">Stack:</strong> Django, Tailwind CSS, PostgreSQL
+                            </div>
+                        </div>
+
+                        <!-- Project 3 -->
+                        <div class="p-4 border border-[#30363d] bg-[#161b22]/60 rounded hover:border-cyan/60 transition-colors">
+                            <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-[#21262d] pb-2 mb-2">
+                                <span class="font-bold text-cyan text-base sm:text-lg">&gt; trace-blocks</span>
+                                <a href="https://github.com/rouwel" target="_blank" rel="noopener" class="pixel-button self-start sm:self-auto">[SOURCE]</a>
+                            </div>
+                            <p class="text-gray-200 text-sm mb-2.5">
+                                A blockchain supply chain tracker built at a hackathon (Jun 2026), recording tamper-proof records of goods in transit on the VeChain blockchain.
+                            </p>
+                            <div class="text-xs text-cyan">
+                                <strong class="text-muted">Stack:</strong> Django, VeChain, Smart Contracts
+                            </div>
+                        </div>
+
+                        <!-- Project 4 -->
+                        <div class="p-4 border border-[#30363d] bg-[#161b22]/60 rounded hover:border-purple/60 transition-colors">
+                            <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-[#21262d] pb-2 mb-2">
+                                <span class="font-bold text-purple text-base sm:text-lg">&gt; gogolas-granola</span>
+                                <div class="flex space-x-2 self-start sm:self-auto">
+                                    <a href="https://render.com" target="_blank" rel="noopener" class="pixel-button">[LIVE]</a>
+                                    <a href="https://github.com/rouwel" target="_blank" rel="noopener" class="pixel-button">[SOURCE]</a>
+                                </div>
+                            </div>
+                            <p class="text-gray-200 text-sm mb-2.5">
+                                A complete e-commerce site for a real food business, with product catalogue, order flow, and an admin panel so the client manages inventory independently. Deployed live on Render.
+                            </p>
+                            <div class="text-xs text-cyan">
+                                <strong class="text-muted">Stack:</strong> Django, Render, SQLite
+                            </div>
+                        </div>
+
+                        <!-- Project 5 -->
+                        <div class="p-4 border border-[#30363d] bg-[#161b22]/60 rounded hover:border-green-500/60 transition-colors">
+                            <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-[#21262d] pb-2 mb-2">
+                                <span class="font-bold text-green-accent text-base sm:text-lg">&gt; grouper</span>
+                                <div class="flex space-x-2 self-start sm:self-auto">
+                                    <a href="https://render.com" target="_blank" rel="noopener" class="pixel-button">[LIVE]</a>
+                                    <a href="https://github.com/rouwel" target="_blank" rel="noopener" class="pixel-button">[SOURCE]</a>
+                                </div>
+                            </div>
+                            <p class="text-gray-200 text-sm mb-2.5">
+                                A skill-balanced team generator using a snake-draft algorithm, with Lightning Network payment gating via LNbits. Deployed live on Render.
+                            </p>
+                            <div class="text-xs text-cyan">
+                                <strong class="text-muted">Stack:</strong> Django, LNbits, REST APIs, Render
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- CERTS SECTION -->
+                <section id="certs" class="scroll-mt-6">
+                    <div class="flex items-center space-x-2 text-sm sm:text-base mb-4 border-b border-[#21262d] pb-2">
+                        <span class="text-green-accent font-bold">rouwel@zone01:~$</span>
+                        <span class="text-white font-semibold">ls certifications/</span>
+                    </div>
+
+                    <div class="space-y-2.5 p-4 border border-[#30363d] bg-[#161b22]/50 rounded">
+                        <div class="flex items-center justify-between py-1.5 border-b border-[#21262d]">
+                            <div>
+                                <div class="font-semibold text-white">ALX Africa - Cybersecurity Programme</div>
+                                <div class="text-xs text-amber">Oct 2025 - Jan 2026</div>
+                            </div>
+                            <span class="text-xs text-green-accent border border-green-500 px-2 py-0.5 rounded">[COMPLETED]</span>
+                        </div>
+
+                        <div class="flex items-center justify-between py-1.5 border-b border-[#21262d]">
+                            <div>
+                                <div class="font-semibold text-white">ALX Africa - Back-End Web Development</div>
+                                <div class="text-xs text-amber">Aug 2025 - Jan 2026</div>
+                            </div>
+                            <span class="text-xs text-green-accent border border-green-500 px-2 py-0.5 rounded">[COMPLETED]</span>
+                        </div>
+
+                        <div class="flex items-center justify-between py-1.5">
+                            <div>
+                                <div class="font-semibold text-white">ALX Africa - Professional Foundations</div>
+                                <div class="text-xs text-amber">May 2025 - Jul 2025</div>
+                            </div>
+                            <span class="text-xs text-green-accent border border-green-500 px-2 py-0.5 rounded">[COMPLETED]</span>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- WRITING / ARTICLES SECTION -->
+                <section id="writing" class="scroll-mt-6">
+                    <div class="flex items-center space-x-2 text-sm sm:text-base mb-4 border-b border-[#21262d] pb-2">
+                        <span class="text-green-accent font-bold">rouwel@zone01:~$</span>
+                        <span class="text-white font-semibold">cat blog.md</span>
+                    </div>
+
+                    <div class="space-y-3">
+                        <p class="text-xs text-muted">
+                            // TECHNICAL ARTICLES PUBLISHED ON DEV.TO/RROUWELNG
+                        </p>
+
+                        <!-- Link 1 -->
+                        <div class="p-3 border border-[#30363d] bg-[#161b22]/60 rounded flex flex-col sm:flex-row sm:items-center justify-between gap-2 hover:border-amber transition-colors">
+                            <div>
+                                <h4 class="font-semibold text-white text-sm sm:text-base">The CSRF Token</h4>
+                                <span class="text-xs text-muted">dev.to/rrouwelng/the-csrf-token-593p</span>
+                            </div>
+                            <a href="https://dev.to/rrouwelng/the-csrf-token-593p" target="_blank" rel="noopener" class="pixel-button text-xs self-start sm:self-auto">[READ]</a>
+                        </div>
+
+                        <!-- Link 2 -->
+                        <div class="p-3 border border-[#30363d] bg-[#161b22]/60 rounded flex flex-col sm:flex-row sm:items-center justify-between gap-2 hover:border-amber transition-colors">
+                            <div>
+                                <h4 class="font-semibold text-white text-sm sm:text-base">Device Drivers: The Unsung Heroes of Your Computer</h4>
+                                <span class="text-xs text-muted">dev.to/rrouwelng/device-drivers-the-unsung-heroes-2gdh</span>
+                            </div>
+                            <a href="https://dev.to/rrouwelng/device-drivers-the-unsung-heroes-of-your-computer-2gdh" target="_blank" rel="noopener" class="pixel-button text-xs self-start sm:self-auto">[READ]</a>
+                        </div>
+
+                        <!-- Link 3 -->
+                        <div class="p-3 border border-[#30363d] bg-[#161b22]/60 rounded flex flex-col sm:flex-row sm:items-center justify-between gap-2 hover:border-amber transition-colors">
+                            <div>
+                                <h4 class="font-semibold text-white text-sm sm:text-base">Getting Started with Django: From Zero to 70 in Record Time</h4>
+                                <span class="text-xs text-muted">dev.to/rrouwelng/getting-started-with-django-1fcb</span>
+                            </div>
+                            <a href="https://dev.to/rrouwelng/getting-started-with-django-from-zero-to-70-in-record-time-1fcb" target="_blank" rel="noopener" class="pixel-button text-xs self-start sm:self-auto">[READ]</a>
+                        </div>
+
+                        <!-- Link 4 -->
+                        <div class="p-3 border border-[#30363d] bg-[#161b22]/60 rounded flex flex-col sm:flex-row sm:items-center justify-between gap-2 hover:border-amber transition-colors">
+                            <div>
+                                <h4 class="font-semibold text-white text-sm sm:text-base">Getting Started with Django: Step 1 - Starting Phase for Linux</h4>
+                                <span class="text-xs text-muted">dev.to/rrouwelng/starting-phase-for-linux-c4d</span>
+                            </div>
+                            <a href="https://dev.to/rrouwelng/getting-started-with-django-from-zero-to-70-in-record-time-step-1-starting-phase-for-linux-c4d" target="_blank" rel="noopener" class="pixel-button text-xs self-start sm:self-auto">[READ]</a>
+                        </div>
+
+                        <!-- Link 5 -->
+                        <div class="p-3 border border-[#30363d] bg-[#161b22]/60 rounded flex flex-col sm:flex-row sm:items-center justify-between gap-2 hover:border-amber transition-colors">
+                            <div>
+                                <h4 class="font-semibold text-white text-sm sm:text-base">Using Controllers to Play PC Games</h4>
+                                <span class="text-xs text-muted">dev.to/rrouwelng/using-controllers-to-play-pc-games-1eab</span>
+                            </div>
+                            <a href="https://dev.to/rrouwelng/using-controllers-to-play-pc-games-1eab" target="_blank" rel="noopener" class="pixel-button text-xs self-start sm:self-auto">[READ]</a>
+                        </div>
+
+                        <!-- Link 6 -->
+                        <div class="p-3 border border-[#30363d] bg-[#161b22]/60 rounded flex flex-col sm:flex-row sm:items-center justify-between gap-2 hover:border-amber transition-colors">
+                            <div>
+                                <h4 class="font-semibold text-white text-sm sm:text-base">From Arcade Cabinets to AI: How the GPU Changed Computing Forever</h4>
+                                <span class="text-xs text-muted">dev.to/rrouwelng/how-the-gpu-changed-computing-a7m</span>
+                            </div>
+                            <a href="https://dev.to/rrouwelng/from-arcade-cabinets-to-ai-how-the-gpu-changed-computing-forever-a7m" target="_blank" rel="noopener" class="pixel-button text-xs self-start sm:self-auto">[READ]</a>
+                        </div>
+
+                        <!-- Link 7 -->
+                        <div class="p-3 border border-[#30363d] bg-[#161b22]/60 rounded flex flex-col sm:flex-row sm:items-center justify-between gap-2 hover:border-amber transition-colors">
+                            <div>
+                                <h4 class="font-semibold text-white text-sm sm:text-base">How the Python Package Installer Works</h4>
+                                <span class="text-xs text-muted">dev.to/rrouwelng/how-python-package-installer-3k13</span>
+                            </div>
+                            <a href="https://dev.to/rrouwelng/how-the-python-package-installer-works-3k13" target="_blank" rel="noopener" class="pixel-button text-xs self-start sm:self-auto">[READ]</a>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- CONTACT SECTION -->
+                <section id="contact" class="scroll-mt-6">
+                    <div class="flex items-center space-x-2 text-sm sm:text-base mb-4 border-b border-[#21262d] pb-2">
+                        <span class="text-green-accent font-bold">rouwel@zone01:~$</span>
+                        <span class="text-white font-semibold">./contact.sh</span>
+                    </div>
+
+                    <div class="p-4 border border-[#30363d] bg-[#161b22]/70 rounded space-y-2 text-sm sm:text-base">
+                        <div class="flex flex-col sm:flex-row sm:items-center gap-1 sm:gap-4">
+                            <span class="text-muted w-24">email:</span>
+                            <a href="mailto:rouwelngacha@gmail.com" class="text-green-accent hover:underline font-semibold">rouwelngacha@gmail.com</a>
+                        </div>
+                        <div class="flex flex-col sm:flex-row sm:items-center gap-1 sm:gap-4">
+                            <span class="text-muted w-24">github:</span>
+                            <a href="https://github.com/rouwel" target="_blank" rel="noopener" class="text-cyan hover:underline font-semibold">github.com/rouwel</a>
+                        </div>
+                        <div class="flex flex-col sm:flex-row sm:items-center gap-1 sm:gap-4">
+                            <span class="text-muted w-24">linkedin:</span>
+                            <a href="https://linkedin.com/in/rouwel-mwangu" target="_blank" rel="noopener" class="text-purple hover:underline font-semibold">linkedin.com/in/rouwel-mwangu</a>
+                        </div>
+                        <div class="flex flex-col sm:flex-row sm:items-center gap-1 sm:gap-4">
+                            <span class="text-muted w-24">blog:</span>
+                            <a href="https://dev.to/rrouwelng" target="_blank" rel="noopener" class="text-amber hover:underline font-semibold">dev.to/rrouwelng</a>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Dynamic Input Output Area -->
+                <div id="dynamic-output" class="space-y-4"></div>
+
+            </div>
+
+            <!-- Terminal Shell Input Bar -->
+            <div class="bg-[#161b22] border-t border-[#30363d] p-3 flex items-center space-x-2 z-10">
+                <span class="text-green-accent font-bold whitespace-nowrap text-sm sm:text-base">rouwel@zone01:~$</span>
+                <input
+                    type="text"
+                    id="cmd-input"
+                    class="bg-transparent border-none text-white font-code text-sm sm:text-base focus:outline-none w-full"
+                    placeholder="Type commands e.g. 'help', 'about', 'skills', 'clear'..."
+                    autocomplete="off"
+                    spellcheck="false"
+                />
+                <span class="pixel-cursor"></span>
+            </div>
+
+        </div>
+
+        <!-- Physical CRT Monitor Lower Control Bar -->
+        <div class="flex items-center justify-between pt-3 px-2 text-xs text-gray-400 select-none">
+            <div class="flex items-center space-x-2">
+                <span class="w-2.5 h-2.5 rounded-full bg-green-500 animate-pulse shadow-[0_0_8px_#26ff63]"></span>
+                <span class="font-code text-[11px] text-gray-400">CRT POWER: ON</span>
+            </div>
+            <div class="font-pixel-accent text-gray-400 text-sm tracking-widest hidden sm:block">
+                ZONE01 KISUMU // VT-100 CRT
+            </div>
+            <div class="flex space-x-1.5">
+                <span class="w-3 h-3 rounded-full bg-[#101218] border border-[#30363d] inline-block"></span>
+                <span class="w-3 h-3 rounded-full bg-[#101218] border border-[#30363d] inline-block"></span>
+                <span class="w-3 h-3 rounded-full bg-[#101218] border border-[#30363d] inline-block"></span>
+            </div>
+        </div>
+
+    </div>
+
+    <script>
+        // Image Upload Handler
+
+        // Load saved image on startup if available
+        window.addEventListener('DOMContentLoaded', () => {
+            const savedImg = localStorage.getItem('rouwel_portfolio_avatar');
+            if (savedImg) {
+                const img = document.getElementById('user-portrait-img');
+                const svgAvatar = document.getElementById('default-svg-avatar');
+                if (img) {
+                    img.src = savedImg;
+                    img.classList.remove('hidden');
+                    if (svgAvatar) svgAvatar.classList.add('hidden');
+                }
+            }
+        });
+
+        function scrollToSection(id) {
+            const el = document.getElementById(id);
+            if (el) {
+                el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }
+            const tabs = document.querySelectorAll('.nav-tab');
+            tabs.forEach(tab => {
+                if (tab.getAttribute('onclick').includes(id)) {
+                    tab.classList.add('active', 'border-green-500', 'text-green-accent');
+                    tab.classList.remove('border-transparent', 'text-muted');
+                } else {
+                    tab.classList.remove('active', 'border-green-500', 'text-green-accent');
+                    tab.classList.add('border-transparent', 'text-muted');
+                }
+            });
+        }
+
+        // CRT Toggle
+        const crtBtn = document.getElementById('toggle-crt');
+        const crtScanlines = document.getElementById('crt-scanlines');
+        let crtActive = true;
+
+        crtBtn.addEventListener('click', () => {
+            crtActive = !crtActive;
+            if (crtActive) {
+                crtScanlines.style.display = 'block';
+                crtBtn.textContent = 'CRT: ON';
+                crtBtn.classList.remove('text-red-400');
+            } else {
+                crtScanlines.style.display = 'none';
+                crtBtn.textContent = 'CRT: OFF';
+                crtBtn.classList.add('text-red-400');
+            }
+        });
+
+        // Command Prompt Script
+        const cmdInput = document.getElementById('cmd-input');
+        const dynamicOutput = document.getElementById('dynamic-output');
+        const terminalContent = document.getElementById('terminal-content');
+
+        cmdInput.addEventListener('keydown', (e) => {
+            if (e.key === 'Enter') {
+                const command = cmdInput.value.trim().toLowerCase();
+                if (command !== '') {
+                    executeCommand(command);
+                    cmdInput.value = '';
+                }
+            }
+        });
+
+        function executeCommand(cmd) {
+            const cmdLine = document.createElement('div');
+            cmdLine.className = 'flex items-center space-x-2 pt-2 border-t border-[#21262d]';
+            cmdLine.innerHTML = `<span class="text-green-accent font-bold">rouwel@zone01:~$</span> <span class="text-white">${escapeHtml(cmd)}</span>`;
+            dynamicOutput.appendChild(cmdLine);
+
+            const resultBox = document.createElement('div');
+            resultBox.className = 'text-gray-300 py-1 font-code text-sm';
+
+            switch (cmd) {
+                case 'help':
+                    resultBox.innerHTML = `
+                        <div class="text-amber mb-1 font-semibold">[COMMAND LIST]</div>
+                        <div class="grid grid-cols-2 sm:grid-cols-3 gap-1 text-xs sm:text-sm">
+                            <div>• <strong class="text-green-accent">about</strong> - Bio &amp; background</div>
+                            <div>• <strong class="text-green-accent">skills</strong> - Tech stack</div>
+                            <div>• <strong class="text-green-accent">projects</strong> - App showcase</div>
+                            <div>• <strong class="text-green-accent">certs</strong> - ALX Certifications</div>
+                            <div>• <strong class="text-green-accent">writing</strong> - Dev.to articles</div>
+                            <div>• <strong class="text-green-accent">contact</strong> - Socials &amp; email</div>
+                            <div>• <strong class="text-green-accent">matrix</strong> - Toggle rain</div>
+                            <div>• <strong class="text-green-accent">clear</strong> - Reset screen</div>
+                        </div>
+                    `;
+                    break;
+                case 'about':
+                case 'whoami':
+                    scrollToSection('hero');
+                    resultBox.innerHTML = `<span class="text-green-accent">&gt; Navigated to Hero / About section.</span>`;
+                    break;
+                case 'skills':
+                    scrollToSection('skills');
+                    resultBox.innerHTML = `<span class="text-green-accent">&gt; Navigated to Skills directory.</span>`;
+                    break;
+                case 'projects':
+                    scrollToSection('projects');
+                    resultBox.innerHTML = `<span class="text-green-accent">&gt; Navigated to Projects list.</span>`;
+                    break;
+                case 'certs':
+                    scrollToSection('certs');
+                    resultBox.innerHTML = `<span class="text-green-accent">&gt; Navigated to Certifications.</span>`;
+                    break;
+                case 'writing':
+                case 'blog':
+                    scrollToSection('writing');
+                    resultBox.innerHTML = `<span class="text-green-accent">&gt; Navigated to Technical Writing.</span>`;
+                    break;
+                case 'contact':
+                    scrollToSection('contact');
+                    resultBox.innerHTML = `<span class="text-green-accent">&gt; Navigated to Contact details.</span>`;
+                    break;
+                case 'clear':
+                    dynamicOutput.innerHTML = '';
+                    return;
+                case 'matrix':
+                    toggleMatrix();
+                    resultBox.innerHTML = `<span class="text-cyan">&gt; Toggled matrix digital rain animation!</span>`;
+                    break;
+                default:
+                    resultBox.innerHTML = `<span class="text-red-400">&gt; Command not recognized: '${escapeHtml(cmd)}'. Type '<span class="text-amber">help</span>' for options.</span>`;
+            }
+
+            dynamicOutput.appendChild(resultBox);
+            terminalContent.scrollTop = terminalContent.scrollHeight;
+        }
+
+        function escapeHtml(text) {
+            return text.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
+        }
+
+        // Matrix Background Effect
+        let matrixActive = false;
+        const canvas = document.getElementById('matrix-canvas');
+        const ctx = canvas.getContext('2d');
+
+        function toggleMatrix() {
+            matrixActive = !matrixActive;
+            canvas.style.display = matrixActive ? 'block' : 'none';
+            if (matrixActive) {
+                resizeCanvas();
+                drawMatrix();
+            }
+        }
+
+        function resizeCanvas() {
+            canvas.width = canvas.parentElement.clientWidth;
+            canvas.height = canvas.parentElement.clientHeight;
+        }
+
+        const chars = '01ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+        let drops = [];
+
+        function initMatrixDrops() {
+            const columns = Math.floor(canvas.width / 16);
+            drops = [];
+            for (let i = 0; i < columns; i++) {
+                drops[i] = Math.floor(Math.random() * -50);
+            }
+        }
+
+        function drawMatrix() {
+            if (!matrixActive) return;
+            if (drops.length === 0) initMatrixDrops();
+
+            ctx.fillStyle = 'rgba(12, 16, 23, 0.1)';
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+            ctx.fillStyle = '#3fb950';
+            ctx.font = '14px Fira Code';
+
+            for (let i = 0; i < drops.length; i++) {
+                const text = chars[Math.floor(Math.random() * chars.length)];
+                ctx.fillText(text, i * 16, drops[i] * 16);
+
+                if (drops[i] * 16 > canvas.height && Math.random() > 0.975) {
+                    drops[i] = 0;
+                }
+                drops[i]++;
+            }
+            setTimeout(() => requestAnimationFrame(drawMatrix), 50);
+        }
+    </script>
+</body>
+</html>
